@@ -1,0 +1,13 @@
+apiVersion: memorydb.services.k8s.aws/v1alpha1
+kind: SubnetGroup
+
+metadata:
+  name: "memorydb-reinvent2022-sg"
+
+spec:
+  name: "memorydb-reinvent2022-sg"
+  description: "MemoryDB cluster subnet group"
+  subnetIDs:
+    - subnet-04da366f57eb3a258
+    - subnet-04cc8db5ab60cd96c
+    - subnet-04f70f6e7fc62da84

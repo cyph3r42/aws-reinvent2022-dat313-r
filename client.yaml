@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client
+  labels:
+    app: client
+spec:
+  containers:
+  - name: memdbreinventclient
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "while true; do sleep 9999; done;" ]
+    image: 809312159477.dkr.ecr.us-east-2.amazonaws.com/reinvent2022:client
+    env:
+    - name: REDIS_HOST
+      value: "clustercfg.reinvent2022.hxhyby.memorydb.us-east-2.amazonaws.com"
+    - name: INVENTORY_API
+      value: "http://10.100.73.107:8000"
+    - name: ORDER_API
+      value: "http://10.100.210.163:8001"

@@ -1,0 +1,20 @@
+apiVersion: memorydb.services.k8s.aws/v1alpha1
+kind: Cluster
+
+metadata:
+  name: reinvent2022 
+
+spec:
+  aclName: open-access
+  autoMinorVersionUpgrade: true
+  description: "test cluster created by ACK"
+  engineVersion: '6.2'
+  name: reinvent2022 
+  nodeType: 'db.t4g.small'
+  numReplicasPerShard: 1
+  numShards: 1
+  parameterGroupName: default.memorydb-redis6
+  securityGroupIDs:
+  - sg-005d11693cf685894
+  subnetGroupName: memorydb-reinvent2022-sg
+  tlsEnabled: true

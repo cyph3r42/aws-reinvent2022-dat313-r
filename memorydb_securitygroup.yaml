@@ -1,0 +1,20 @@
+apiVersion: ec2.services.k8s.aws/v1alpha1 
+kind: SecurityGroup
+metadata:
+  name: "memorydb-reinvent2022"
+spec:
+  name: "memorydb-reinvent2022"
+  description: "MemoryDB cluster Security Group access only from private subnets CIDRs"
+  ingressRules:
+  - fromPort: 6379
+    toPort: 6379
+    ipProtocol: TCP
+    ipRanges:
+    - cidrIP: 172.31.96.0/19
+    - cidrIP: 172.31.128.0/19
+    - cidrIP: 172.31.160.0/19
+    - cidrIP: 172.31.15.11/32
+  vpcID: "vpc-036c98183cc180b42" 
+  tags:
+  - key: Name
+    value: "kubectl-memorydb-reinvent2022/SecurityGroup"
